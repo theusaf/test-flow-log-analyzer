@@ -1,7 +1,10 @@
+from typing import Union
+
+
 class LogRecord:
 
     def __init__(self, fields=None, tag=None):
-        self.fields = {
+        self.fields: dict[str, Union[None, str]] = {
             "version": None,
             "account-id": None,
             "interface-id": None,

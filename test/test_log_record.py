@@ -24,6 +24,16 @@ class TestLogRecord(unittest.TestCase):
                 "dstport", "protocol", "packets", "bytes", "start", "end", "action", "log-status"]
         )
 
+    def test_comparison(self):
+        record1 = LogRecord(fields={"version": "2"}, tag="tag")
+        record2 = LogRecord(
+            fields={"version": "2", "srcport": "100"}, tag="tag2")
+        record3 = LogRecord(
+            fields={"version": "2", "srcport": "100"}, tag="tag")
+        self.assertEqual(record2, record3)
+        self.assertNotEqual(record1, record2)
+        self.assertNotEqual(record1, record3)
+
 
 if __name__ == "__main__":
     unittest.main()
