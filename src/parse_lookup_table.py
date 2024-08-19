@@ -6,6 +6,7 @@ def parse_lookup_table(table: str) -> list[LogRecord]:
     reader = csv.DictReader(table.splitlines())
     records = []
     for row in reader:
-        record = LogRecord()
+        tag = row.pop("tag")
+        record = LogRecord(fields=row, tag=tag)
         records.append(record)
     return records
