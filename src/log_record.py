@@ -34,3 +34,23 @@ class LogRecord:
                 if self.fields[key] != other.fields[key]:
                     return False
         return True
+
+    @staticmethod
+    def parse_line(line: str) -> "LogRecord":
+        fields = line.split()
+        return LogRecord({
+            "version": fields[0],
+            "account-id": fields[1],
+            "interface-id": fields[2],
+            "srcaddr": fields[3],
+            "dstaddr": fields[4],
+            "srcport": fields[5],
+            "dstport": fields[6],
+            "protocol": fields[7],
+            "packets": fields[8],
+            "bytes": fields[9],
+            "start": fields[10],
+            "end": fields[11],
+            "action": fields[12],
+            "log-status": fields[13]
+        })
