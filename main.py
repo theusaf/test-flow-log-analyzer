@@ -25,21 +25,21 @@ def main():
         lookup_rows = parse_lookup_table(lookup_data)
 
     # Find matching rows and update its tag
+    tag_counts: dict[str, int] = {}
+    untagged_count = 0
+
     for row in input_rows:
         for lookup in lookup_rows:
             if lookup == row:
                 row.tag = lookup.tag
-
-    # Print results
-    tag_counts: dict[str, int] = {}
-    untagged_count = 0
-    for row in input_rows:
+                if row.tag in tag_counts:
+                    tag_counts[row.tag] += 1
+                else:
+                    tag_counts[row.tag] = 1
         if row.tag is None:
             untagged_count += 1
-        elif row.tag in tag_counts:
-            tag_counts[row.tag] += 1
-        else:
-            tag_counts[row.tag] = 1
+
+    # Print results
     print("Tag Counts:")
     print("Tag,Count")
     for tag, count in tag_counts.items():
