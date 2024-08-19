@@ -1,9 +1,7 @@
-import os
 import sys
 
 from src.parse_lookup_table import parse_lookup_table, reverse_protocol_map
 from src.log_record import LogRecord
-cwd = os.getcwd()
 
 
 def main():
