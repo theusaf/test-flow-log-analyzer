@@ -20,6 +20,12 @@ python3 main.py <input_file> <lookup_file>
 
 Tests were written to ensure functionality of matching logs with lookup data and parsing logs and lookup CSV data. See the [`test`](./test) directory for details.
 
+To run the tests, use the following command:
+
+```bash
+python3 -m unittest
+```
+
 The code is structured in a way which makes the program easily extensible for matching other log fields.
 
 ## Assumptions
