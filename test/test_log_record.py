@@ -10,6 +10,11 @@ class TestLogRecord(unittest.TestCase):
         self.assertIsInstance(record.fields, dict)
         self.assertIsInstance(record.tag, str)
 
+    def test_default_init(self):
+        record = LogRecord()
+        self.assertIsInstance(record.fields, dict)
+        self.assertIsNone(record.tag)
+
 
 if __name__ == "__main__":
     unittest.main()
