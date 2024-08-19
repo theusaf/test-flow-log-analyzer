@@ -29,10 +29,10 @@ dstport,protocol,tag
         # Note: The values here are not accurate
         result = parse_lookup_table(table)
         self.assertEqual(result[0].fields["dstport"], "25")
-        self.assertEqual(result[0].fields["protocol"], "tcp")
+        self.assertEqual(result[0].fields["protocol"], "6")
         self.assertEqual(result[0].tag, "sv_P1")
         self.assertEqual(result[1].fields["dstport"], "68")
-        self.assertEqual(result[1].fields["protocol"], "udp")
+        self.assertEqual(result[1].fields["protocol"], "17")
         self.assertEqual(result[1].tag, "sv_P2")
 
 
