@@ -3,7 +3,7 @@ from typing import Union
 
 class LogRecord:
 
-    def __init__(self, fields=None, tag=None):
+    def __init__(self, fields: dict[str, str] = None, tag: str = None):
         self.fields: dict[str, Union[None, str]] = {
             "version": None,
             "account-id": None,
