@@ -15,6 +15,14 @@ class TestLogRecord(unittest.TestCase):
         self.assertIsInstance(record.fields, dict)
         self.assertIsNone(record.tag)
 
+    def test_available_fields(self):
+        record = LogRecord(tag="tag")
+        self.assertListEqual(
+            [key for key in record.fields.keys()],
+            ["version", "account-id", "interface-id", "srcaddr", "dstaddr", "srcport",
+                "dstport", "protocol", "packets", "bytes", "start", "end", "action", "log-status"]
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
