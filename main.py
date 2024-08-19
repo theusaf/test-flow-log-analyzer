@@ -7,6 +7,10 @@ cwd = os.getcwd()
 
 
 def main():
+    if len(sys.argv) != 3:
+        print("Usage: python main.py <input_file> <lookup_file>")
+        sys.exit(1)
+
     input_file = sys.argv[1]
     lookup_file = sys.argv[2]
 
