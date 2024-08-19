@@ -12,8 +12,12 @@ def parse_lookup_table(table: str) -> list[LogRecord]:
     records = []
     for row in reader:
         tag = row.pop("tag")
+        dstport = row["dstport"]
         protocol = row["protocol"].lower()
-        row["protocol"] = protocol_map.get(protocol, protocol)
-        record = LogRecord(fields=row, tag=tag)
+        protocol = protocol_map.get(protocol, protocol)
+        record = LogRecord(fields={
+            "dstport": dstport,
+            "protocol": protocol
+        }, tag=tag)
         records.append(record)
     return records
