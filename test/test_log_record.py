@@ -29,10 +29,10 @@ class TestLogRecord(unittest.TestCase):
         record2 = LogRecord(
             fields={"version": "2", "srcport": "100"}, tag="tag2")
         record3 = LogRecord(
-            fields={"version": "2", "srcport": "100"}, tag="tag")
-        self.assertEqual(record2, record3)
-        self.assertNotEqual(record1, record2)
-        self.assertNotEqual(record1, record3)
+            fields={"version": "2", "srcport": "200"}, tag="tag")
+        self.assertEqual(record1, record2)
+        self.assertEqual(record1, record3)
+        self.assertNotEqual(record2, record3)
 
 
 if __name__ == "__main__":

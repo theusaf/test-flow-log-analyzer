@@ -23,3 +23,14 @@ class LogRecord:
         if fields:
             self.fields.update(fields)
         self.tag = tag
+
+    def __eq__(self, other):
+        """
+        Compare two `LogRecord` objects for equality.
+        Only fields that are not `None` in both objects are compared.
+        """
+        for key in self.fields.keys():
+            if self.fields[key] is not None and other.fields[key] is not None:
+                if self.fields[key] != other.fields[key]:
+                    return False
+        return True
