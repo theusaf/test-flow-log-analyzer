@@ -20,6 +20,21 @@ dstport,protocol,tag
         for record in result:
             self.assertIsInstance(record, LogRecord)
 
+    def test_fields_are_set(self):
+        table = """
+dstport,protocol,tag
+25,tcp,sv_P1
+68,udp,sv_P2
+""".strip()
+        result = parse_lookup_table(table)
+        self.assertEqual(result[0].fields["dstport"], "25")
+        self.assertEqual(result[0].fields["protocol"], "tcp")
+        self.assertEqual(result[0].tag, "sv_P1")
+        self.assertEqual(result[1].fields["dstport"], "68")
+        self.assertEqual(result[1].fields["protocol"], "udp")
+        self.assertEqual(result[1].tag, "sv_P2")
+
+
 
 if __name__ == "__main__":
     unittest.main()
