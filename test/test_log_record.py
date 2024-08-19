@@ -8,6 +8,7 @@ class TestLogRecord(unittest.TestCase):
             "version": 2,
         }, "tag")
         self.assertIsInstance(record.fields, dict)
+        self.assertEqual(record.fields["version"], 2)
         self.assertIsInstance(record.tag, str)
 
     def test_default_init(self):
